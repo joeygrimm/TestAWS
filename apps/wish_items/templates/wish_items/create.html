@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load staticfiles %}
+    <link href="{% static 'wish_items/style.css' %}" rel="stylesheet">
+    <title>Create A New Item</title>
+</head>
+<body>
+    <header>
+        <h1>Create a New Wish List Item</h1>
+        <a href="{% url 'wish:index'%}">Home</a>
+        <a href="{% url 'login:logout'%}">Logout</a>
+    </header>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p class="{{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <div id="create_div">
+        <form action="{% url 'wish:new'%}" method="POST">
+            {% csrf_token %}
+            <label for="new_item">Item/Product:</label>
+            <input type="text" name="new_item">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>

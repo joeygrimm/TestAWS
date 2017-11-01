@@ -1,0 +1,25 @@
+html,body,h1,h2,h3,h4,h5 {
+    font-family: "Raleway", sans-serif
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th {
+    text-align: left;
+}
+
+label{
+    display: inline-block;
+    width: 100px;
+    margin-left: 15px;
+}
+form, button{
+    margin-left: 15px;
+}
